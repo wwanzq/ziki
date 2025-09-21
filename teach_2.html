@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans', sans-serif;
+            color: #686868;
+            background: white;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 98%;
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 2.5% 2.5%;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 200px; /* 把它改大 */
+        }
+
+        .header h1 {
+            font-size: clamp(20px, 2vw, 24px);
+            font-weight: 600;
+            letter-spacing: 0.48px;
+            margin: 0;
+        }
+
+        .nav {
+            display: flex;
+            gap: clamp(20px, 2vw, 40px);
+            font-size: clamp(18px, 1.5vw, 22px);
+            font-weight: 300;
+        }
+        .nav a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 300;
+            transition: font-weight 0.1s ease;
+        }
+
+        .nav a:hover {
+            font-weight: 400;
+        }
+
+
+        .project-section {
+            margin-bottom: 50px;
+            
+        }
+
+        .section-title {
+            font-size: clamp(18px, 1.8vw, 22px);
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #CBCBCB;
+            margin-bottom: 15px;
+        }
+        
+        /* New Styles for the split layout */
+        .project-grid {
+            display: flex;
+            flex-direction: column; /* Switch to single-column layout */
+            gap: 40px;
+            width: 100%;
+        }
+        
+        .project-item {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: nowrap;
+            flex: 1 1 100%; /* Full width for single-column layout */
+            /* justify-content: center; */
+        }
+        
+        .project-image-wrapper {
+            /* Increase image width for wider display */
+            flex: 0 0 750px; /* Left part: fixed width */
+            max-width: 100%;
+            position: relative;
+            overflow: hidden; /* ensure zoom stays within wrapper */
+        }
+        
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .project-image-wrapper:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-info-wrapper {
+            flex: 1 1 650px; /* Right part: takes remaining space, min width 360px */
+        }
+        
+        .project-title {
+            font-size: clamp(16px, 1.5vw, 20px);
+            font-weight: 500;
+            margin: 0;
+        }
+        /* Hover interaction to bold title and description */
+        .info-link:hover .project-title {
+            font-weight: 600; /* 500 -> 600 */
+        }
+        .info-link:hover .project-description {
+            font-weight: 400; /* 300 -> 400 */
+        }
+        .project-title, .project-description {
+            transition: font-weight 0.1s ease;
+        }
+        .info-link {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .project-description {
+            font-size: clamp(14px, 1.2vw, 18px);
+            font-weight: 300;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+
+        .project-paper {
+            font-size: clamp(12px, 1vw, 15px);
+            font-weight: 300;
+            color: #A4A4A4;
+            margin: 0;
+        }
+        .project-paper a {
+            text-decoration: underline;        /* 添加下划线 */
+            color: #A4A4A4;                    /* 设置颜色为灰色 #A4A4A4 */
+            display: inline-block;             /* 可选：控制布局 */
+            font-size: inherit;                /* 保持字体大小与父元素一致 */
+            transition: color 0.3s ease;       /* 可选：添加颜色过渡效果 */
+        }
+
+        /* 可选：鼠标悬停时颜色变深 */
+        .project-paper a:hover {
+            color: #777;
+        }
+
+        
+        .footer {
+            margin-top: 80px;
+            text-align: center;
+            font-size: clamp(14px, 1.2vw, 18px);
+            font-weight: 300;
+            color: #686868;
+        }
+        
+        @media (max-width: 1500px) {
+            .header {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .nav {
+                margin-top: 20px;
+                justify-content: center;
+                gap: 20px;
+            }
+            .project-item {
+                flex-direction: column;
+                align-items: center;
+            }
+            .project-image-wrapper {
+                flex-basis: auto;
+            }
+        }
+
+        /* Support images grid */
+        .support-image-grid {
+            display: flex;
+            flex-direction: column; /* single column layout */
+            gap: 20px;
+            align-items: center; /* center images horizontally */
+            margin-top: 40px;
+        }
+        .support-image-grid img {
+            width: 80%; /* occupy 80% of viewport width */
+            max-width: none; /* allow larger width */
+            height: auto; /* prevent stretching */
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <h1>ZHIQI WANG</h1>
+            </a>
+            <nav class="nav">
+                <a href="project.html" style="text-decoration: none; color: inherit;">Project</a>
+                <a href="teach.html" style="color: #A4A4A4;">Teach</a>
+                <a href="hobby.html" style="text-decoration: none; color: inherit;">Hobby</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Support course photos -->
+            <section class="project-section">
+                <h2 class="section-title">Teaching Moments</h2>
+                <div class="divider"></div>
+                <div class="support-image-grid">
+                    <img src="photos/CAA/1.JPG" alt="Photo 1">
+                    <img src="photos/CAA/2.HEIC" alt="Photo 2">
+                    <img src="photos/CAA/2.JPG" alt="Photo 3">
+                    <img src="photos/CAA/3.heic" alt="Photo 4">
+                    <img src="photos/CAA/4.heic" alt="Photo 5">
+                    <img src="photos/CAA/5.heic" alt="Photo 6">
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Copyright 2025 Zhiqi Wang</p>
+        </footer>
+    </div>
+</body>
+</html>

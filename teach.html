@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans', sans-serif;
+            color: #686868;
+            background: white;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 98%;
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 2.5% 2.5%;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 200px; /* 把它改大 */
+        }
+
+        .header h1 {
+            font-size: clamp(20px, 2vw, 24px);
+            font-weight: 600;
+            letter-spacing: 0.48px;
+            margin: 0;
+        }
+
+        .nav {
+            display: flex;
+            gap: clamp(20px, 2vw, 40px);
+            font-size: clamp(18px, 1.5vw, 22px);
+            font-weight: 300;
+        }
+        .nav a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 300;
+            transition: font-weight 0.1s ease;
+        }
+
+        .nav a:hover {
+            font-weight: 400;
+        }
+
+
+        .project-section {
+            margin-bottom: 50px;
+            
+        }
+
+        .section-title {
+            font-size: clamp(18px, 1.8vw, 22px);
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #CBCBCB;
+            margin-bottom: 15px;
+        }
+        
+        /* New Styles for the split layout */
+        .project-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+        }
+
+        /* For larger screens show items side-by-side */
+        @media (min-width: 800px) {
+            .project-grid {
+                flex-direction: column; /* keep column for list of items */
+            }
+            .project-item {
+                flex-direction: row;
+            }
+        }
+        
+        .project-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: nowrap;
+            flex: 1 1 100%; /* Full width for single-column layout */
+            /* justify-content: center; */
+        }
+        
+        .project-image-wrapper {
+            /* Ensure image takes ample space on the left */
+            flex: 0 0 45%; /* roughly 45% of available width */
+            max-width: 800px; /* cap the width so it does not grow too large on ultra-wide screens */
+            position: relative;
+            overflow: hidden; /* ensure zoom stays within wrapper */
+        }
+        
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .project-image-wrapper:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-info-wrapper {
+            flex: 1 1 750px; /* Right part: takes remaining space, min width 360px */
+        }
+        
+        .project-title {
+            font-size: clamp(16px, 1.5vw, 20px);
+            font-weight: 500;
+            margin: 0;
+        }
+        /* Hover interaction to bold title and description */
+        .info-link:hover .project-title {
+            font-weight: 600; /* 500 -> 600 */
+        }
+        .info-link:hover .project-description {
+            font-weight: 400; /* 300 -> 400 */
+        }
+        .project-title, .project-description {
+            transition: font-weight 0.1s ease;
+        }
+        .info-link {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .project-description {
+            font-size: clamp(14px, 1.2vw, 18px);
+            font-weight: 300;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+
+        .project-paper {
+            font-size: clamp(12px, 1vw, 15px);
+            font-weight: 300;
+            color: #A4A4A4;
+            margin: 0;
+        }
+        .project-paper a {
+            text-decoration: underline;        /* 添加下划线 */
+            color: #A4A4A4;                    /* 设置颜色为灰色 #A4A4A4 */
+            display: inline-block;             /* 可选：控制布局 */
+            font-size: inherit;                /* 保持字体大小与父元素一致 */
+            transition: color 0.3s ease;       /* 可选：添加颜色过渡效果 */
+        }
+
+        /* 可选：鼠标悬停时颜色变深 */
+        .project-paper a:hover {
+            color: #777;
+        }
+
+        
+        .footer {
+            margin-top: 80px;
+            text-align: center;
+            font-size: clamp(14px, 1.2vw, 18px);
+            font-weight: 300;
+            color: #686868;
+        }
+        
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .nav {
+                margin-top: 20px;
+                justify-content: center;
+                gap: 20px;
+            }
+            .project-item {
+                flex-direction: column;
+                align-items: center;
+            }
+            .project-image-wrapper {
+                flex-basis: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <h1>ZHIQI WANG</h1>
+            </a>
+            <nav class="nav">
+                <a href="project.html" style="text-decoration: none; color: inherit;">Project</a>
+                <a href="teach.html" style="color: #A4A4A4;">Teach</a>
+                <a href="hobby.html" style="text-decoration: none; color: inherit;">Hobby</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="project-section">
+                <div class="divider"></div>
+                <h2 class="section-title"># Rural Education Support</h2>
+                <div class="project-grid">
+                    <div class="project-item">
+                        <div class="project-image-wrapper">
+                            <a href="teach_1.html" target="_blank">
+                                <img class="project-image" src="photos/support teach/support.png" alt="Education support" />
+                            </a>
+                        </div>
+                        <a class="info-link" href="teach_1.html" target="_blank"><div class="project-info-wrapper">
+                            <h3 class="project-title">"Where the faraway becomes Tangible"</h3>
+                            <p class="project-description">Bringing 3D printing to a high-altitude community 3,500m above sea level enabled children to sculpt their dreams with 3D pens.</p>
+                            <p class="project-paper">2023.08 - 2023.09</p>
+                           <p class="project-paper"><br/><br/></p>
+                            <p class="project-paper">
+                                <a href="https://mp.weixin.qq.com/s/1VIjlwLvDJwAgokrexLNuA" target="_blank">WeChat Official Account Posts</a> 
+                            </p>
+                        </div></a>
+                    </div>
+            <section class="project-section">
+                <div class="divider"></div>
+                <h2 class="section-title"># Teaching Assistant for the "Design Information Product" Course</h2>
+                <div class="project-grid">
+                    <div class="project-item">
+                        <div class="project-image-wrapper">
+                            <a href="photos/DIP/tuiwen.pdf" target="_blank">
+                                <img class="project-image" src="photos/DIP/dip.jpg" alt="Design Information Product" />
+                            </a>
+                        </div>
+                        <a class="info-link" href="photos/DIP/tuiwen.pdf" target="_blank"><div class="project-info-wrapper">
+                            <h3 class="project-title">Zhejiang University & BrainCo Tech | Innovative Design of Application Scenarios for Brain-Computer Interfaces</h3>
+                            <p class="project-description">In collaboration with BrainCo Tech, we launched a specialized course centered on brain-computer interfaces and served as an industry-academia collaboration channel for the DIA Design Awards, fostering innovation across education, research, and industry.</p>
+                            <p class="project-paper">2025.02 - 2025.06</p>
+                           <p class="project-paper"><br/><br/></p>
+                            <p class="project-paper">
+                                <a href="https://mp.weixin.qq.com/s/UxwzNVx-wjwEsmoert7CpA" target="_blank">WeChat Official Account Posts</a> 
+                            </p>
+                        </div></a>
+                    </div>       
+                <section class="project-section">
+                <div class="divider"></div>
+                <h2 class="section-title"># Course Collaboration with China Academy of Art</h2>
+                <div class="project-grid">
+                    <div class="project-item">
+                        <div class="project-image-wrapper">
+                            <a href="teach_2.html" target="_blank">
+                                <img class="project-image" src="photos/CAA/1.JPG" alt="lecture" />
+                            </a>
+                        </div>
+                        <a class="info-link" href="teach_2.html" target="_blank"><div class="project-info-wrapper">
+                            <h3 class="project-title">The Morphology of “Textile”</h3>
+                            <p class="project-description">This course investigates the structural mechanisms and design methodologies of deformable crochet, expanding its application space in contemporary design and technology. Students will engage in hands-on experimentation to develop adaptive textile morphologies that respond to form, function, and interaction.</p>
+                            <p class="project-paper">2024.12</p>
+                        </div></a>
+                    </div>       
+        </main>
+
+        <footer class="footer">
+            <p>Copyright 2025 Zhiqi Wang</p>
+        </footer>
+    </div>
+</body>
+</html>

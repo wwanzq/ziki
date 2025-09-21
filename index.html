@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhiqi Wang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans', sans-serif;
+            color: #686868;
+            background: white;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 98%;
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 2.5% 2.5%;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: clamp(20px, 2vw, 24px);
+            font-weight: 600;
+            letter-spacing: 0.48px;
+            margin: 0;
+        }
+        .nav {
+            display: flex;
+            gap: clamp(20px, 2vw, 40px);
+            font-size: clamp(18px, 1.5vw, 22px);
+            font-weight: 300;
+        }
+
+
+        .nav a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 300;
+            transition: font-weight 0.1s ease;
+        }
+
+        .nav a:hover {
+            font-weight: 400;
+        }
+
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .profile-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .text-content {
+            font-size: clamp(16px, 1.4vw, 22px);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        .text-content .highlight {
+            font-weight: 500;
+        }
+
+        .info-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .info-item {
+            flex: 1 1 300px;
+            min-width: 250px;
+        }
+        
+        .info-title {
+            font-size: clamp(15px, 1.3vw, 18px);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .info-details {
+            font-size: clamp(13px, 1.1vw, 17px);
+            font-weight: 300;
+            color: #A4A4A4;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .nav {
+                margin-top: 20px;
+                justify-content: center;
+                gap: 20px;
+            }
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            .profile-img {
+                margin: 0 auto;
+            }
+            .info-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+        <header class="header">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <h1>ZHIQI WANG</h1>
+            </a>
+        <nav class="nav">
+            <a href="project.html" style="text-decoration: none; color: inherit;">Project</a>
+            <a href="#" style="text-decoration: none; color: inherit;">Teach</a>
+            <a href="#" style="text-decoration: none; color: inherit;">Hobby</a>
+
+        </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="container">
+                <img class="responsive-img" src="photos/home/me.png" alt="Profile Picture" />
+                <div class="fixed-text">
+            <section class="info-section">
+            <div class="info-item">
+                <div class="info-title">PhD Student  in Design</div>
+                <div class="info-details">Guanyun Lab, <br/>Department of Computer Science and Technology, <br/>Zhejiang University, 2024</div>
+            </div>
+            <div class="info-item">
+                <div class="info-title">BA  Industrial Design</div>
+                <div class="info-details">Department of Computer Science and Technology, <br/>Zhejiang University, 2020</div>
+            </div>
+                </div>
+            </div>
+            <div class="text-content">
+                <span>Hi! I’m </span>
+                <span class="highlight">Zhiqi (Ziki)</span>
+                <span>, a second-year Ph.D. student at Zhejiang University. </span>
+                <br/>
+                <span>I am a member of Professor Guanyun Wang and Professor Ye Tao's research group (<a href="https://design.zju.edu.cn/guanyunlab/">Guanyun Lab</a>).</span>
+                <br/><br/>
+                <span>My work revolves around Tangible Interaction Interfaces, with a particular interest in exploring their </span>
+                <span class="highlight">shape-changing mechanisms</span>
+                <span> and </span>
+                <span class="highlight">bio-inspired applications</span>
+                <span>. </span>
+                <br/><br/>
+                <span>I believe that by staying curious and actively engaging in fabrication, </span>
+                <br/>
+                <span>we can uncover a world of new possibilities.<br/></span>
+            <section class="info-section">
+            <div class="info-item">
+               <div class="info-title">Contact</div>
+                 <div class="info-details">
+                    Email: zhiqiwang@zju.edu.cn<br/>
+                    WeChat: wanzq37<br/>
+                    Instagram: wanzq_37
+            </div>
+
+</body>
+</html>
